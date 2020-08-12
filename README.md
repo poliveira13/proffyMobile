@@ -6,12 +6,6 @@
     Online teaching platform made with React Native using Typescript during the NLW (Next Level Week) #02</a>🚀
 </p>
 
-### Content
-
-    * [Requirements](#Requirements)
-        * ~~Mobile~~
-    * [Running](#Running)
-
 #### Requirements
 
 - [Node.js](https://nodejs.org/en)

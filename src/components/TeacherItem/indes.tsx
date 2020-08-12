@@ -8,39 +8,36 @@ import heartOutlineIcon from "../../assets/images/icons/heart-outline.png";
 import unFavoriteIcon from "../../assets/images/icons/unfavorite.png";
 import whatsappIcon from "../../assets/images/icons/whatsapp.png";
 
-function TeacherItem() {
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+}
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
-        <Image
-          source={{ uri: "https://github.com/poliveira13.png" }}
-          style={styles.avatar}
-        />
+        <Image source={{ uri: teacher.avatar }} style={styles.avatar} />
         <View style={styles.profileInfo}>
-          <Text style={styles.name}>Priscila Oliveira</Text>
-          <Text style={styles.subject}>Artes</Text>
+          <Text style={styles.name}>{teacher.name}</Text>
+          <Text style={styles.subject}>{teacher.subject}</Text>
         </View>
       </View>
 
-      <Text style={styles.bio}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        {"\n"}
-        {"\n"}
-        Voluptates quis dolorum ipsam repellendus autem corporis commodi nemo
-        enim voluptate omnis aliquam reprehenderit, ut, itaque veritatis libero
-        quisquam dolore consequuntur cupiditate. Lorem ipsum dolor sit, amet
-        consectetur adipisicing elit. Delectus, ex quae ipsa voluptatibus natus
-        consequatur! Totam quae illo dolorem beatae eveniet facilis, voluptatum
-        exercitationem, eos eaque in, deleniti animi libero. Lorem ipsum, dolor
-        sit amet consectetur adipisicing elit. Odit ad eveniet enim fugit
-        doloribus maxime quas autem ab atque tempore ipsa dolorum minima
-        similique culpa sit praesentium quod, voluptatum cumque.
-      </Text>
+      <Text style={styles.bio}>{teacher.bio}</Text>
 
       <View style={styles.footer}>
         <Text style={styles.price}>
           Preço/hota{"   "}
-          <Text style={styles.priceValue}>R$ 20,00</Text>
+          <Text style={styles.priceValue}>R$ {teacher.cost}</Text>
         </Text>
 
         <View style={styles.buttonsContainer}>
@@ -56,6 +53,6 @@ function TeacherItem() {
       </View>
     </View>
   );
-}
+};
 
 export default TeacherItem;
